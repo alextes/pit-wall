@@ -1,6 +1,6 @@
 [package]
 name = "pit-wall"
-version = "0.3.0"
+version = "0.4.0"
 edition = "2021"
 categories = ["development-tools"]
 homepage = "https://github.com/alextes/pit-wall"
