@@ -19,7 +19,7 @@ impl Progress {
     /// # Examples
     ///
     /// ```
-    /// use miyagi::Progress;
+    /// use pit_wall::Progress;
     /// let mut progress = Progress::new("my job", 100);
     /// ```
     pub fn new(name: &str, work_todo: u64) -> Self {
@@ -34,7 +34,7 @@ impl Progress {
     /// Increment work done by one unit.
     ///
     /// ```
-    /// use miyagi::Progress;
+    /// use pit_wall::Progress;
     /// let mut progress = Progress::new("my job", 100);
     /// progress.inc_work_done();
     /// assert_eq!(progress.work_done, 1);

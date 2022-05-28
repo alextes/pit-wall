@@ -1,9 +1,10 @@
 [package]
-name = "miyagi"
+name = "pit-wall"
 version = "0.1.0"
 edition = "2021"
 categories = ["development-tools"]
-homepage = "https://github.com/alextes/miyagi"
+homepage = "https://github.com/alextes/pit-wall"
 keywords = ["progress", "eta", "estimate"]
 license = "MIT"
-repository = "https://github.com/alextes/miyagi"
+repository = "https://github.com/alextes/pit-wall"
+description = "measure and report the progress of your program"

@@ -1,11 +1,11 @@
-# Miyagi - 🕯🥋
-A rust lib that helps you measure your progress and report on it. The intention is to help you report the progress of some execution in whatever form you wish.
+# Pit Wall - 🏎⏱
+Measure the progress of execution and report on it. The intention is to help you report the progress of some execution in whatever form you wish.
 
-My first rust library. Feedback and PRs very welcome.
+Feedback and PRs very welcome.
 
 ## Usage
 ```rs
-use miyagi::Progress;
+use pit_wall::Progress;
 
 let mut progress = Progress::new("job name", 100);
 progress.inc_work_done();
