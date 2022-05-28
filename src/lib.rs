@@ -1,3 +1,16 @@
+//! Measure the progress of execution and report on it.
+//!
+//! Not a profiling library. You define, and report the work done yourself.
+//!
+//! ## Usage
+//! ```rs
+//! use pit_wall::Progress;
+//!
+//! let mut progress = Progress::new("job name", 100);
+//! progress.inc_work_done();
+//! println!("{}", progress.get_progress_string()); // job name 2/100 - 2.0% started 2s ago, eta: 98s
+//! ```
+
 use std::time::{Duration, Instant};
 
 /// The struct holding the state and functions related to our progress.
