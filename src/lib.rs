@@ -74,7 +74,7 @@ impl Progress {
         let eta = if self.work_done == self.work_total {
             "done!".to_string()
         } else {
-            format!("{}s", self.estimate_time_left().as_secs())
+            format!("{:?}", self.estimate_time_left())
         };
 
         format!(
@@ -142,7 +142,7 @@ mod tests {
         progress.set_work_done(50);
         assert_eq!(
             progress.get_progress_string(),
-            "test progress 50/100 - 50.0% started 0s ago, eta: 0s"
+            "test progress 50/100 - 50.0% started 0s ago, eta: 0ns"
         );
     }
 
