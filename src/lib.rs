@@ -94,17 +94,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_make_progress() {
-        Progress::new("test progress", 100);
-        let mut progress = Progress::new("job name", 100);
-        thread::sleep(Duration::from_secs(1));
-        progress.inc_work_done();
-        thread::sleep(Duration::from_secs(1));
-        progress.inc_work_done();
-        println!("{}", progress.get_progress_string());
-    }
-
-    #[test]
     fn test_inc_work_done() {
         let mut progress = Progress::new("test progress", 100);
         progress.inc_work_done();
