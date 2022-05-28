@@ -135,22 +135,28 @@ mod tests {
     }
 
     #[test]
-    fn test_make_progress_string() {
+    fn test_get_progress_string() {
         let mut progress = Progress::new("test progress", 100);
         progress.set_work_done(50);
-        assert_eq!(
-            progress.get_progress_string(),
-            "test progress 50/100 - 50.0% started 0s ago, eta: 0ns"
-        );
+
+        // something like `test progress 50/100 - 50.0% started 41ns ago, eta: 0ns`
+        // time elapsed will differ from test to test so we skip testing.
+        let progress_string = progress.get_progress_string();
+
+        assert!(progress_string.starts_with("test progress 50/100 - 50.0% started"));
+        assert!(progress_string.ends_with("ago, eta: 0ns"));
     }
 
     #[test]
     fn test_work_complete_string() {
         let mut progress = Progress::new("test progress", 100);
         progress.set_work_done(100);
-        assert_eq!(
-            progress.get_progress_string(),
-            "test progress 100/100 - 100.0% started 0s ago, eta: done!"
-        );
+
+        // something like `test progress 50/100 - 50.0% started 41ns ago, eta: 0ns`
+        // time elapsed will differ from test to test so we skip testing.
+        let progress_string = progress.get_progress_string();
+
+        assert!(progress_string.starts_with("test progress 100/100 - 100.0% started"));
+        assert!(progress_string.ends_with("ago, eta: done!"));
     }
 }
