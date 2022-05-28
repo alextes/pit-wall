@@ -2,7 +2,8 @@
 name = "miyagi"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[dependencies]
+categories = ["development-tools"]
+homepage = "https://github.com/alextes/miyagi"
+keywords = ["progress", "eta", "estimate"]
+license = "MIT"
+repository = "https://github.com/alextes/miyagi"
