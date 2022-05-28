@@ -67,10 +67,8 @@ impl Progress {
     /// Returns a formatted string giving a bunch of information on the current progress.
     /// You may want to log this periodically with whatever logging you have set up.
     pub fn get_progress_string(&self) -> String {
-        let seconds_elapsed = format!(
-            "{:?}s",
-            Instant::now().duration_since(self.started_at).as_secs()
-        );
+        let time_elapsed = format!("{:?}", Instant::now().duration_since(self.started_at));
+
         let eta = if self.work_done == self.work_total {
             "done!".to_string()
         } else {
@@ -83,7 +81,7 @@ impl Progress {
             self.work_done,
             self.work_total,
             self.work_done as f64 / self.work_total as f64 * 100f64,
-            seconds_elapsed,
+            time_elapsed,
             eta
         )
     }
