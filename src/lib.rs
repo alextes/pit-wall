@@ -12,6 +12,7 @@
 //! ```
 
 use std::time::{Duration, Instant};
+use tracing::warn;
 
 /// The struct holding the state and functions related to our progress.
 pub struct Progress {
@@ -69,7 +70,13 @@ impl Progress {
     /// Get an estimate in seconds of the estimated seconds remaining.
     /// Uses basic linear interpolation to come up with an estimate.
     fn estimate_time_left(&self) -> Duration {
-        let work_not_done = self.work_total - self.work_done;
+        if self.work_done > self.work_total {
+            warn!(self.work_done, self.work_total, "work done is larger than work total, using work done == work total to calculate time left");
+        }
+        let work_not_done = self
+            .work_total
+            .checked_sub(self.work_done)
+            .unwrap_or(self.work_total);
         let not_done_to_done_ratio = work_not_done as f64 / self.work_done as f64;
         let seconds_since_start = Instant::now() - self.started_at;
         let eta_seconds = not_done_to_done_ratio * seconds_since_start.as_secs() as f64;
@@ -160,5 +167,14 @@ mod tests {
 
         assert!(progress_string.starts_with("test progress 100/100 - 100.0% started"));
         assert!(progress_string.ends_with("ago, eta: done!"));
+    }
+
+    #[test]
+    fn guard_against_work_done_overflow_test() {
+        let mut progress = Progress::new("test progress", 2);
+        progress.inc_work_done();
+        progress.inc_work_done();
+        progress.inc_work_done();
+        progress.estimate_time_left();
     }
 }

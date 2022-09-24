@@ -8,3 +8,6 @@ keywords = ["progress", "eta", "estimate"]
 license = "MIT"
 repository = "https://github.com/alextes/pit-wall"
 description = "measure and report the progress of your program"
+
+[dependencies]
+tracing = "0.1.36"
