@@ -107,28 +107,28 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_inc_work_done() {
+    fn inc_work_done_test() {
         let mut progress = Progress::new("test progress", 100);
         progress.inc_work_done();
         assert_eq!(progress.work_done, 1);
     }
 
     #[test]
-    fn test_inc_work_done_by() {
+    fn inc_work_done_by_test() {
         let mut progress = Progress::new("test progress", 100);
         progress.inc_work_done_by(10);
         assert_eq!(progress.work_done, 10);
     }
 
     #[test]
-    fn test_set_work_done() {
+    fn set_work_done_test() {
         let mut progress = Progress::new("test progress", 100);
         progress.set_work_done(50);
         assert_eq!(progress.work_done, 50);
     }
 
     #[test]
-    fn test_estimate_eta() {
+    fn estimate_eta_test() {
         let mut progress = Progress::new("test progress", 100);
         progress.set_work_done(50);
         thread::sleep(Duration::from_secs(1));
@@ -137,7 +137,7 @@ mod tests {
     }
 
     #[test]
-    fn test_get_progress_string() {
+    fn get_progress_string_test() {
         let mut progress = Progress::new("test progress", 100);
         progress.set_work_done(50);
 
@@ -150,7 +150,7 @@ mod tests {
     }
 
     #[test]
-    fn test_work_complete_string() {
+    fn work_complete_string_test() {
         let mut progress = Progress::new("test progress", 100);
         progress.set_work_done(100);
 
