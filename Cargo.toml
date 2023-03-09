@@ -10,4 +10,5 @@ repository = "https://github.com/alextes/pit-wall"
 description = "measure and report the progress of your program"
 
 [dependencies]
+humantime = "2.1.0"
 tracing = "0.1.36"
